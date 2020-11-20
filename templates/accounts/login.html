@@ -1,0 +1,53 @@
+{% extends "layouts/base-non-app.html" %}
+{% load socialaccount %}
+
+{% block title %} Login{% endblock %} 
+
+{% block content %}
+<div class="container-fluid page-body-wrapper full-page-wrapper">
+  <div class="row w-100 m-0">
+    <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+      <div class="card col-lg-4 col-md-6 col-sm-12 mx-auto rounded">
+        <div class="card-body px-3 p-3 ">
+          <div class="text-center">
+            <img src="/media/img/favicon/mstile-150x150.png" style="height : 150px; width : 150px;" alt=""
+              class="img-fluid rounded">
+            <h3 class="f-w-400 mb-4">
+              Domowa Automatyka
+            </h3>
+          </div>
+          <span class="mb-0 text-muted text-center">
+            {% if msg %}
+            {{ msg | safe }}
+            {% endif %}
+          </span>
+          <form role="form" method="post" action="">
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form.username }}
+            </div>
+            <div class="form-group">
+              {{ form.password }}
+            </div>
+            <div class="text-center">
+              <button type="submit" name="login" class="btn btn-primary btn-block enter-btn">Login</button>
+            </div>
+            <div class="d-flex">
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-12 text-center pb-2">
+              <a class="btn" href="{% provider_login_url 'google' %}" role="button" style="text-transform:none">
+                <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+                  src="/media/img/favicon/google.png" />
+                Login with Google
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

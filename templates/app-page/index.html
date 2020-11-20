@@ -1,0 +1,124 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block plugin_stylesheets %}
+<link rel="stylesheet" href="/static/assets/vendors/dataTables/dataTables.bootstrap4.min.css">
+
+
+{% endblock plugin_stylesheets %}
+
+{% block plugin_javascripts %}
+<script src="/static/assets/js/main_surveillance_system.js"></script>
+<script src="/static/assets/vendors/dataTables/jquery.dataTables.min.js"></script>
+<script src="/static/assets/vendors/dataTables/dataTables.bootstrap4.min.js"></script>
+
+
+{% endblock plugin_javascripts %}
+
+{% block javascripts %}
+<script>
+  // tokens are access tokens that will be used to query API
+  const tokens = JSON.parse('{{ access_tokens|safe }}');
+  const alias_to_ip_map = JSON.parse('{{ camera_ip|safe }}');
+</script>
+{% endblock javascripts %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="grid-margin stretch-card align-items-center rounded">
+    <h4>Centrum Dowodzenia Systemem</h4>
+  </div>
+  <div class="row">
+    {% for camera in cameras %}
+    <div class="col-xl-3 col-md-4 col-sm-6 col-xs-6 grid-margin stretch-card system">
+      <div class="card ">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-3">
+              <div class="icon icon-box-light" id="camera_{{camera.type}}_status">
+                {% if camera.type == "ubuntu" %}
+                <span class="mdi mdi-ubuntu icon-item"></span>
+                {% else %}
+                <span class="mdi mdi-pi icon-item"></span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="d-flex align-items-center mx-auto my-auto align-self-start">
+                <h4 class="mt-1">{{ camera.alias }}</h4>
+              </div>
+            </div>
+          </div>
+          <h6 class="pt-2 text-muted font-weight-normal">{{ camera.ip }}</h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="col-xl-12 grid-margin stretch-card pb-5">
+      <div class="card" style="background-color: transparent;">
+        <div>
+          <div class="d-flex flex-row justify-content-center">
+            <div class="p-1">
+              Start delay (s)
+            </div>
+            <div class="d-flex p-1">
+              <div class="font-weight-bold mr-2 mt-1">0</div>
+              <form class="range-field">
+                <input class="border-0" value="45" id="delay-slider" type="range" min="0" max="180"
+                  style="background-color: aliceblue;" />
+              </form>
+              <div class="font-weight-bold ml-2 mt-1">180</div>
+            </div>
+          </div>
+          <div class="text-center align-items-center py-2">
+            <div class="btn-toolbar" style="justify-content: center; display: flex;" role="toolbar"
+              aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" id="fdsfs" role="group" aria-label="First group">
+                <button type="button" class="btn icon icon-box-success" id="start_button">
+                  <span class="mdi mdi-play-circle-outline icon-item"></span>
+                </button>
+              </div>
+              <div class="btn-group mr-2" role="group" aria-label="Second group">
+                <button type="button" class="btn icon icon-box-danger" id="stop_button">
+                  <span class="mdi mdi-stop-circle-outline icon-item"></span>
+              </div>
+              <div class="btn-group" role="group" aria-label="Third group">
+                <button type="button" class="btn icon icon-box-primary">
+                  <span class="mdi mdi-power icon-item"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="color : white">
+    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Detection History</h4>
+          <div>
+            <table id="detection_table" class="table table-striped table-bordered" style="width:100%">
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Message History</h4>
+          <div>
+            <table id="message_table" class="table table-striped table-bordered" style="width:100%">
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

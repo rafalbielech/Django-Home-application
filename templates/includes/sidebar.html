@@ -1,0 +1,70 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <!-- Button that toggles both the width of the sidebar and contains the sidebar bar -->
+    <button class="navbar-toggler navbar-toggler text-center" type="button" data-toggle="minimize">
+      <span class="mdi mdi-book-open-page-variant mdi-lg text-blue"></span>
+    </button>
+  </div>
+  <ul class="nav">
+    <li class="nav-item nav-category">
+      <span class="nav-link">Navigation</span>
+    </li>
+    <li class="nav-item menu-items {% if 'index' in segment %} active {% endif %}">
+      <a class="nav-link" href="/">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" data-toggle="collapse" href="#ui-api" aria-expanded="false" aria-controls="ui-api">
+        <span class="menu-icon">
+          <i class="mdi mdi-laptop"></i>
+        </span>
+        <span class="menu-title">API</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-api">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="http://192.168.0.101:8888/">RPI Clear</a></li>
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="http://192.168.0.102:8888/">Ubuntu</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" data-toggle="collapse" href="#ui-websphere" aria-expanded="false"
+        aria-controls="ui-websphere">
+        <span class="menu-icon">
+          <i class="mdi mdi-chart-bar"></i>
+        </span>
+        <span class="menu-title">WebSphere</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-websphere">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="https://192.168.0.101:10000/">RPI Clear</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="https://192.168.0.102:10000/">Ubuntu</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" data-toggle="collapse" href="#ui-platforms" aria-expanded="false"
+        aria-controls="ui-platforms">
+        <span class="menu-icon">
+          <i class="mdi mdi-chart-bar"></i>
+        </span>
+        <span class="menu-title">Platforms</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-platforms">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="http://192.168.0.102:8000/jupyter/">JupyterLab</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" target="_blank" href="http://192.168.0.102:9000/">Jenkins</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
