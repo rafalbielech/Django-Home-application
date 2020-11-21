@@ -16,7 +16,7 @@ import json
 def index(request):
     return render(
         request,
-        "app-page/index.html",
+        "app-page/home.html",
         {
             "cameras": settings.CONFIG.get("local", {}).get("network_info", []),
             "camera_ip": json.dumps(settings.CONFIG.get("local", {}).get("network_info", [])),
