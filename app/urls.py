@@ -11,8 +11,8 @@ urlpatterns = [
     # Matches any html file - to be used for gentella
     # Avoid using your .html in your resources.
     # Or create a separate django app.
-    re_path(r'^.*\.html', views.pages, name='pages'),
-
+    re_path(r"^.*\.html", views.pages, name="pages"),
     # The home page
-    path('', views.index, name='home'),
+    path("", views.index, name="home"),
+    path("parameters/", views.parameter_inspection, name="param inspection"),
 ]

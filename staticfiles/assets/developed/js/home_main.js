@@ -11,8 +11,8 @@ function getSystemStatus() {
                 },
             })
             .done(function (json) {
-                if (!json.status) {
-                    $('#camera_' + element.type + '_status').removeClass("executing").addClass("notexecuting");
+                if (!json.system_running) {
+                    $(' #camera_' + element.type + '_status').removeClass("executing").addClass("notexecuting");
                 } else {
                     $('#camera_' + element.type + '_status').removeClass("notexecuting").addClass("executing");
                 }
@@ -27,7 +27,7 @@ function getSystemStatus() {
 }
 
 function updateDataElement(choice) {
-    if (typeof tableRecord['record_table'] != "undefined"){
+    if (typeof tableRecord['record_table'] != "undefined") {
         tableRecord['record_table'].destroy();
         $('#record_table').empty();
 
@@ -59,7 +59,7 @@ function updateDataElement(choice) {
                     },
                 ]
             });
-            
+
             break;
 
         case "Detection":
@@ -89,7 +89,7 @@ function updateDataElement(choice) {
                     },
                 ]
             });
-            
+
             break;
 
         case "Messages":
@@ -161,30 +161,30 @@ function updateDataElement(choice) {
     return url_route;
 }
 
-function fetchData(system_ip, url_route){
+function fetchData(system_ip, url_route) {
     const api_url = "http://" + system_ip + "/api/camera/" + url_route + "/";
     $.ajax({
-        method: "GET",
-        url: api_url,
-        headers: {
-            'Authorization': 'Bearer ' + tokens[system_ip]
-        }
-    })
-    .done(function (json) {
-        data_to_feed = [];
-        json.forEach(element => {
-            // turn list of dict+ionary to a list of lists 
-            let temp = Object.keys(element).map(function (key) {
-                return element[key];
+            method: "GET",
+            url: api_url,
+            headers: {
+                'Authorization': 'Bearer ' + tokens[system_ip]
+            }
+        })
+        .done(function (json) {
+            data_to_feed = [];
+            json.forEach(element => {
+                // turn list of dict+ionary to a list of lists 
+                let temp = Object.keys(element).map(function (key) {
+                    return element[key];
+                });
+                data_to_feed.push(temp);
             });
-            data_to_feed.push(temp);
+            // feed the data to the table 
+            tableRecord['record_table'].rows.add(data_to_feed).columns.adjust().draw();
+        })
+        .fail(function () {
+            console.log("error getting messages for ... " + system_ip);
         });
-        // feed the data to the table 
-        tableRecord['record_table'].rows.add(data_to_feed).columns.adjust().draw();
-    })
-    .fail(function () {
-        console.log("error getting messages for ... " + system_ip);
-    });
 }
 
 ' update system status every 5 seconds '
@@ -213,7 +213,7 @@ $('#start_button').click(function () {
                 }
             })
             .done(function (json) {
-                if (json.success) {
+                if (json.system_running) {
                     $('#camera_' + element.type + '_status').removeClass("notexecuting").addClass("executing");
                 }
             })
@@ -241,7 +241,7 @@ $('#stop_button').click(function () {
                 }
             })
             .done(function (json) {
-                if (json.success) {
+                if (!json.system_running) {
                     $('#camera_' + element.type + '_status').removeClass("executing").addClass("notexecuting");
                 }
             })
@@ -272,8 +272,7 @@ $('.system').on('click touch', function () {
 $("#record_select_picker").on("changed.bs.select", function (e, clickedIndex, newValue, oldValue) {
     if (typeof selectionRecord['clicked_system'] === "undefined") {
         alert("First click on the system card ... ");
-    }
-    else {
+    } else {
         // selectionRecord['clikced_system'] is not undefined , get the url route based on selection
         const url_route = updateDataElement(this.value);
         const system_ip = selectionRecord['clicked_system'];

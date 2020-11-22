@@ -17,6 +17,14 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    <li class="nav-item menu-items {% if 'index' in segment %} active {% endif %}">
+      <a class="nav-link" href="/parameters/">
+        <span class="menu-icon">
+          <i class="mdi mdi-chart-bar"></i>
+        </span>
+        <span class="menu-title">System Parameters</span>
+      </a>
+    </li>
     <li class="nav-item menu-items">
       <a class="nav-link" data-toggle="collapse" href="#ui-api" aria-expanded="false" aria-controls="ui-api">
         <span class="menu-icon">
@@ -53,7 +61,7 @@
       <a class="nav-link" data-toggle="collapse" href="#ui-platforms" aria-expanded="false"
         aria-controls="ui-platforms">
         <span class="menu-icon">
-          <i class="mdi mdi-chart-bar"></i>
+          <i class="mdi mdi-chart-gantt"></i>
         </span>
         <span class="menu-title">Platforms</span>
         <i class="menu-arrow"></i>

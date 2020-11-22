@@ -1,0 +1,34 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block plugin_stylesheets %}
+<link rel="stylesheet" href="/static/assets/vendors/dataTables/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/static/assets/vendors/bootstrap-select/bootstrap-select.min.css">
+{% endblock plugin_stylesheets %}
+
+{% block plugin_javascripts %}
+
+
+<script src="/static/assets/vendors/dataTables/jquery.dataTables.min.js"></script>
+<script src="/static/assets/vendors/dataTables/dataTables.bootstrap4.min.js"></script>
+
+<script src="/static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+{% endblock plugin_javascripts %}
+
+{% block javascripts %}
+<script>
+  // tokens are access tokens that will be used to query API
+  const tokens = JSON.parse('{{ access_tokens|safe }}');
+  const alias_to_ip_map = JSON.parse('{{ camera_ip|safe }}');
+</script>
+{% endblock javascripts %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="grid-margin stretch-card align-items-center rounded">
+    <h4>Parameter collection</h4>
+  </div>
+</div>
+{% endblock content %}
