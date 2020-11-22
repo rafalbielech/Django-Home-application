@@ -14,15 +14,15 @@ import json
 
 @login_required(login_url="/login/")
 def index(request):
+    """
+    cameras --> used to populate template
+    alias_to_ip_map --> used to populate alias_to_ip_map
+    access_tokens --> used to populate tokens
+    """
     return render(
         request,
         "app-page/home.html",
         {
-            """
-            cameras --> used to populate template 
-            alias_to_ip_map --> used to populate alias_to_ip_map
-            access_tokens --> used to populate tokens
-            """
             "cameras": settings.CONFIG.get("local", {}).get("network_info", []),
             "camera_ip": json.dumps(settings.CONFIG.get("local", {}).get("network_info", [])),
             "access_tokens": json.dumps(settings.CONFIG.get("tokens", {})),
@@ -32,14 +32,14 @@ def index(request):
 
 @login_required(login_url="/login/")
 def parameter_inspection(request):
+    """
+    alias_to_ip_map --> used to populate alias_to_ip_map
+    access_tokens --> used to populate tokens
+    """
     return render(
         request,
         "app-page/param_stats.html",
         {
-            """
-            alias_to_ip_map --> used to populate alias_to_ip_map
-            access_tokens --> used to populate tokens
-            """
             "camera_ip": json.dumps(settings.CONFIG.get("local", {}).get("network_info", [])),
             "access_tokens": json.dumps(settings.CONFIG.get("tokens", {})),
         },
