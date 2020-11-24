@@ -1,30 +1,6 @@
 var selectionRecord = {}
 var tableRecord = {}
 
-function getSystemStatus() {
-    alias_to_ip_map.forEach(element => {
-        $.ajax({
-                method: "GET",
-                url: "http://" + element.ip + "/api/camera/status/",
-                headers: {
-                    'Authorization': 'Bearer ' + tokens[element.ip]
-                },
-            })
-            .done(function (json) {
-                if (!json.system_running) {
-                    $(' #camera_' + element.type + '_status').removeClass("executing").addClass("notexecuting");
-                } else {
-                    $('#camera_' + element.type + '_status').removeClass("notexecuting").addClass("executing");
-                }
-            })
-            .fail(function () {
-                console.log("error" + element.ip);
-            })
-            .always(function () {
-
-            });
-    });
-}
 
 function updateDataElement(choice) {
     if (typeof tableRecord['record_table'] != "undefined") {

@@ -40,6 +40,7 @@ def parameter_inspection(request):
         request,
         "app-page/param_stats.html",
         {
+            "cameras": settings.CONFIG.get("local", {}).get("network_info", []),
             "camera_ip": json.dumps(settings.CONFIG.get("local", {}).get("network_info", [])),
             "access_tokens": json.dumps(settings.CONFIG.get("tokens", {})),
         },

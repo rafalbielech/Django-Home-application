@@ -28,7 +28,43 @@
 {% block content %}
 <div class="content-wrapper">
   <div class="grid-margin stretch-card align-items-center rounded">
-    <h4>Parameter collection</h4>
+    <h4>Parameter Visualization</h4>
+  </div>
+  <div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-inline px-2">
+                <select class="selectpicker mb-4 show-tick" id="system_picker" data-width="250px"
+                  data-live-search="true" title="Choose record type to see" data-style="btn-primary">
+                  {% for camera in cameras %}
+                  {% if camera.type == "ubuntu" %}
+                  <option class="mdi mdi-ubuntu px-2 "> {{ camera.ip }}</option>
+                  {% else %}
+                  <option class="mdi mdi-pi px-2"> {{ camera.ip }}</option>
+                  {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="d-inline px-2">
+                <select class="selectpicker mb-4 show-tick" id="parameter_picker" data-width="100px"
+                  data-live-search="true" title="Choose parameter type to visualize" data-style="btn-primary">
+                  <option>Network</option>
+                  <option>CPU</option>
+                  <option>Disk</option>
+                  <option>Memory</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock content %}
