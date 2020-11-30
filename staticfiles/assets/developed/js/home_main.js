@@ -45,7 +45,7 @@ function updateDataElement(choice) {
                 scrollX: true,
                 searching: false,
                 order: [
-                    [2, 'desc']
+                    [3, 'desc']
                 ],
                 data: [],
                 columns: [
@@ -76,7 +76,7 @@ function updateDataElement(choice) {
                 scrollX: true,
                 searching: false,
                 order: [
-                    [1, 'desc']
+                    [2, 'desc']
                 ],
                 data: [],
                 columns: [
