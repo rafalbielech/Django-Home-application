@@ -21,7 +21,6 @@
   // tokens are access tokens that will be used to query API
   const tokens = JSON.parse('{{ access_tokens|safe }}');
   const alias_to_ip_map = JSON.parse('{{ camera_ip|safe }}');
-  const ip_cameras = JSON.parse('{{ available_cameras|safe }}');
 </script>
 {% endblock javascripts %}
 
@@ -56,7 +55,33 @@
       </div>
     </div>
     {% endfor %}
+  </div>
 
+  <div class="row">
+    {% for camera in rtsp_cameras %}
+    <div class="col-xl-2 col-md-3 col-sm-4 col-xs-6 grid-margin stretch-card system">
+      <div class="card ">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-4">
+              <div class="icon icon-box-light" id="camera_{{camera.id}}">
+                <span class="mdi mdi-camera icon-item"></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center mx-auto my-auto align-self-start">
+                <h4 class="mt-1">RTSP</h4>
+              </div>
+            </div>
+          </div>
+          <h6 class="pt-2 text-muted font-weight-normal">{{ camera.id }}</h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="row">
     <div class="col-xl-12 grid-margin stretch-card pb-5">
       <div class="card" style="background-color: transparent;">
         <div>
