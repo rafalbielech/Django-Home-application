@@ -9,6 +9,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django import template
 from django.conf import settings
+from scapy.all import *
 import json
 
 
@@ -19,10 +20,17 @@ def index(request):
     alias_to_ip_map --> used to populate alias_to_ip_map
     access_tokens --> used to populate tokens
     """
+    rtsp_cameras_on_network = [
+        item.get("id")
+        for item in settings.CONFIG.get("local", {}).get("rtsp_camera", [])
+        if getmacbyip(item.get("ip")) != None
+    ]
+
     return render(
         request,
         "app-page/home.html",
         {
+            "available_cameras": json.dumps(rtsp_cameras_on_network),
             "cameras": settings.CONFIG.get("local", {}).get("network_info", []),
             "camera_ip": json.dumps(settings.CONFIG.get("local", {}).get("network_info", [])),
             "access_tokens": json.dumps(settings.CONFIG.get("tokens", {})),

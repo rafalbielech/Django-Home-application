@@ -13,7 +13,6 @@
 
 <script src="/static/assets/vendors/dataTables/jquery.dataTables.min.js"></script>
 <script src="/static/assets/vendors/dataTables/dataTables.bootstrap4.min.js"></script>
-
 <script src="/static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
 {% endblock plugin_javascripts %}
 
@@ -22,6 +21,7 @@
   // tokens are access tokens that will be used to query API
   const tokens = JSON.parse('{{ access_tokens|safe }}');
   const alias_to_ip_map = JSON.parse('{{ camera_ip|safe }}');
+  const ip_cameras = JSON.parse('{{ available_cameras|safe }}');
 </script>
 {% endblock javascripts %}
 
