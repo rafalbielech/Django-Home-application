@@ -24,6 +24,30 @@ function getSystemStatus() {
 
             });
     });
+
+    const temp = alias_to_ip_map[0];
+
+    $.ajax({
+        method: "GET",
+        url: "http://" + temp.ip + "/api/camera/action/rtsp/status",
+        headers: {
+            'Authorization': 'Bearer ' + tokens[temp.ip]
+        },
+    })
+    .done(function (json) {
+        $('.rtsp_camera').removeClass("icon-box-primary").addClass("icon-box-light");
+        json.forEach(element => {
+            $(' #camera_' + element).removeClass("icon-box-light").addClass("icon-box-danger");
+        });
+        
+    })
+    .fail(function () {
+        console.log("error" + temp.ip);
+    })
+    .always(function () {
+
+    });
+
 }
 
 function updateDataElement(choice) {

@@ -29,9 +29,12 @@
   <div class="grid-margin stretch-card align-items-center rounded">
     <h4>Centrum Dowodzenia Systemem</h4>
   </div>
+  <div class="grid-margin stretch-card text-center align-items-center rounded">
+      <h6>Systems</h6>
+  </div>
   <div class="row">
     {% for camera in cameras %}
-    <div class="col-xl-3 col-md-4 col-sm-6 col-xs-6 grid-margin stretch-card system">
+    <div class="col-xl-3 col-md-4 col-sm-6 col-6 grid-margin stretch-card system">
       <div class="card ">
         <div class="card-body ">
           <div class="row">
@@ -56,15 +59,17 @@
     </div>
     {% endfor %}
   </div>
-
+  <div class="grid-margin stretch-card text-center align-items-center rounded">
+    <h6>RTSP cameras</h6>
+</div>
   <div class="row">
     {% for camera in rtsp_cameras %}
-    <div class="col-xl-2 col-md-3 col-sm-4 col-xs-6 grid-margin stretch-card system">
+    <div class="col-xl-2 col-md-4 col-sm-6 col-6 grid-margin stretch-card">
       <div class="card ">
         <div class="card-body ">
           <div class="row">
             <div class="col-4">
-              <div class="icon icon-box-light" id="camera_{{camera.id}}">
+              <div class="icon icon-box-light rtsp_camera" id="camera_{{camera.id}}">
                 <span class="mdi mdi-camera icon-item"></span>
               </div>
             </div>
