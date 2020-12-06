@@ -29,16 +29,13 @@
   <div class="grid-margin stretch-card align-items-center rounded">
     <h4>Centrum Dowodzenia Systemem</h4>
   </div>
-  <div class="grid-margin stretch-card text-center align-items-center rounded">
-      <h6>Systems</h6>
-  </div>
   <div class="row">
     {% for camera in cameras %}
     <div class="col-xl-3 col-md-4 col-sm-6 col-6 grid-margin stretch-card system">
       <div class="card ">
         <div class="card-body ">
           <div class="row">
-            <div class="col-3">
+            <div class="col-2">
               <div class="icon icon-box-light" id="camera_{{camera.type}}_status">
                 {% if camera.type == "ubuntu" %}
                 <span class="mdi mdi-ubuntu icon-item"></span>
@@ -47,39 +44,41 @@
                 {% endif %}
               </div>
             </div>
-            <div class="col-9">
-              <div class="d-flex align-items-center mx-auto my-auto align-self-start">
-                <h4 class="mt-1">{{ camera.alias }}</h4>
-              </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-6 align-items-left justify-content-start">
+              <h5 class="text-warning">{{ camera.alias }}</h5>
+              <h6 class="text-muted" style="	white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;">{{ camera.ip }}</h6>
             </div>
           </div>
-          <h6 class="pt-2 text-muted font-weight-normal">{{ camera.ip }}</h6>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
-  <div class="grid-margin stretch-card text-center align-items-center rounded">
-    <h6>RTSP cameras</h6>
-</div>
   <div class="row">
     {% for camera in rtsp_cameras %}
     <div class="col-xl-2 col-md-4 col-sm-6 col-6 grid-margin stretch-card">
       <div class="card ">
         <div class="card-body ">
           <div class="row">
-            <div class="col-4">
+            <div class="col-2">
               <div class="icon icon-box-light rtsp_camera" id="camera_{{camera.id}}">
                 <span class="mdi mdi-camera icon-item"></span>
               </div>
             </div>
+            <div class="col-2">
+            </div>
             <div class="col-6">
-              <div class="d-flex align-items-center mx-auto my-auto align-self-start">
-                <h4 class="mt-1">RTSP</h4>
-              </div>
+              <h6 class="text-warning">RTSP</h6>
+              <h6 class="text-muted" style="	white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;">{{ camera.id }}</h6>
             </div>
           </div>
-          <h6 class="pt-2 text-muted font-weight-normal">{{ camera.id }}</h6>
         </div>
       </div>
     </div>
@@ -130,7 +129,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-6">
-              <h4 class="card-title">API Inspector</h4>
+              <h4 class="card-title" id="api_inspector_table">API Inspector</h4>
             </div>
             <div class="col-6" style="text-align: right;">
               <select class="selectpicker mb-4" id="record_select_picker" data-width="150px" data-live-search="true"

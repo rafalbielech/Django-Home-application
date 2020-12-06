@@ -1,5 +1,7 @@
-var selectionRecord = {}
-var tableRecord = {}
+var selectionRecord = {};
+var tableRecord = {};
+var startDetail = [];
+var stopDetail = [];
 
 function getSystemStatus() {
     alias_to_ip_map.forEach(element => {
@@ -192,6 +194,7 @@ function updateDataElement(choice) {
 }
 
 function fetchData(system_ip, url_route) {
+    $('#api_inspector_table').text("API Inspector - " + system_ip);
     const api_url = "http://" + system_ip + "/api/camera/" + url_route + "/";
     $.ajax({
             method: "GET",
@@ -217,11 +220,9 @@ function fetchData(system_ip, url_route) {
         });
 }
 
-' update system status every 5 seconds '
 window.setInterval(function () {
     getSystemStatus();
 }, 5000);
-
 
 $(document).ready(function () {
     ' When the page loads, create a new DataTable and get execute function to get System status '
@@ -229,8 +230,6 @@ $(document).ready(function () {
     updateDataElement($('#record_select_picker').val());
 
 });
-
-
 
 $('#start_button').click(function () {
     $("#start_button").attr("disabled", true);
@@ -243,6 +242,9 @@ $('#start_button').click(function () {
                 }
             })
             .done(function (json) {
+                let data_point = json;
+                data_point.ip = element.ip;
+                startDetail.push(data_point);
                 if (json.system_running) {
                     $('#camera_' + element.type + '_status').removeClass("notexecuting").addClass("executing");
                 }
@@ -259,7 +261,6 @@ $('#start_button').click(function () {
     }, 2000);
 });
 
-
 $('#stop_button').click(function () {
     $("#stop_button").attr("disabled", true);
     alias_to_ip_map.forEach(element => {
@@ -271,6 +272,9 @@ $('#stop_button').click(function () {
                 }
             })
             .done(function (json) {
+                let data_point = json;
+                data_point.ip = element.ip;
+                stopDetail.push(data_point);
                 if (!json.system_running) {
                     $('#camera_' + element.type + '_status').removeClass("executing").addClass("notexecuting");
                 }
@@ -287,7 +291,6 @@ $('#stop_button').click(function () {
     }, 2000);
 });
 
-
 $('.system').on('click touch', function () {
     // get the IP address of the system card that was selected/clicked/touched
     selectionRecord['clicked_system'] = $(this).find('h6').text();
@@ -297,7 +300,6 @@ $('.system').on('click touch', function () {
 
     fetchData(system_ip, url_route);
 });
-
 
 $("#record_select_picker").on("changed.bs.select", function (e, clickedIndex, newValue, oldValue) {
     if (typeof selectionRecord['clicked_system'] === "undefined") {
