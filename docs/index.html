@@ -1,131 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="Rafał Bielech" />
-        <title>Django Home application - Rafał Bielech</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png">
-        <link rel="manifest" href="./assets/img/favicon/site.webmanifest">
-        <link rel="mask-icon" href="./assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="./assets/img/favicon/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="./assets/img/favicon/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">        
-        <script src="js/fontawesome-all.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Django Home app</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/me_icon.jpg" alt="" /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#documentation">Web portal & Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#streamcapture">Capture and Classify</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#djangomodels">Django Models & Authentication</a></li>
-                </ul>
-            </div>
-        </nav>
 
-        
-        <div class="container-fluid p-0">
-            <section class="information-section" id="about" style="align-items: center;">
-                <div class="information-section-content">
-                    <h2 class="mb-0">
-                        RestFramework built with 
-                        <span class="text-primary">Django</span>
-                        and 
-                        <span class="text-primary">JWT</span>
-                    </h2>
-                    <div class="subheading mb-2">
-                        Code is made available on <a target="_blank" href="https://github.com/rafalbielech/Django-RestFramework">Github</a>, executing on home network deployed with Gunicorn and Nginx.
-                    </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Rafał Bielech" />
+    <title>Django Home application - Rafał Bielech</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./assets/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="./assets/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <script src="js/fontawesome-all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
 
-                    <div class="social-icons mt-2">
-                        <a class="social-icon" title="Project page" target="_blank" href="https://rafalbielech.github.io/projects/"><i class="fab fas fa-laptop-code"></i></a>
-                        <a class="social-icon" title="GitHub" target="_blank" href="https://github.com/rafalbielech/Django-RestFramework"><i class="fab fa-github"></i></a>
-                    </div>
-
-                    <div class="text-muted mt-5 mb-2">This project was designed to operate home-grown surveillance system and collect node parameters (running on Raspberry PI 3b+ and Ubuntu Server) while maintaining microservice architecture. This enables surveillance system to be incorporated with Siri, Alexa, and other virtual assistants because authentication is done using JWT. A seperate <a target="_blank" href="https://github.com/rafalbielech/Django-Home-application">web portal</a> was built to operate and visualize parameters.</div>
-                    
-                    <div class="subheading text-primary mb-1">Programming Languages, Tools & Platforms</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-python"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-ubuntu"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-raspberry-pi"></i></li>
-
-                    </ul>
-
-                </div>
-            </section>
-            <hr class="m-0" />
-            <section class="information-section" id="documentation">
-                <div class="information-section-content">
-                    <h2 class="mb-2">Web portal & Documentation</h2>
-                    <hr>
-                    <div class="d-flex mb-5">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 col-xl-6 mb-4">
-                                <p>RF documentation was done with Swagger which enables interacting with the routes in the web portal. The application was built with Basic and Bearer authentication and anyone can either log in or provide their Bearer token to see results for each route.</p>
-                                <p>/camera route is responsible for starting/stopping and providing supporting information like when history of detections, commands, and messages (messages are a way to store information  from the working threads when RTSP capture has to reset and other information).</p>
-                                <p>/parameter is responsible for saving and retrieving general node parameters like CPU utilization, temp, memory etc but also information pertaining to internet speed. </p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-4">
-                                <img src="./assets/img/main_screen.jpg" class="img-fluid" style="object-fit: cover" alt="Responsive image">
-                            </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-2">
-                                <img src="./assets/img/screen2.jpg" class="img-fluid" style="max-height : 800px; object-fit: cover" alt="Responsive image">
-                             </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-2">
-                                <p>Swagger makes it simple to add IN-QUERY parameters like "delay" in the adjacent image which has available values of 0, 15, 30, 90, and 180 seconds. The authentication tokens are passed by default in the HEADER. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <section class="information-section" id="streamcapture">
-                <div class="information-section-content">
-                    <h2 class="mb-2">Capture and Classify</h2>
-                    <hr>
-                    <div class="d-flex mb-5">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 col-xl-6 mb-4">
-                                <p></p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-4">
-                                <video width="320" height="240" controls>
-                                    <source src="./assets/img/supplemental/black_friday_output.mp4" type=video/mp4>
-                                </video>
-                            </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-2">
-                                <img src="./assets/img/screen2.jpg" class="img-fluid" style="max-height : 200px ; object-fit: cover" alt="Responsive image">
-                             </div>
-                            <div class="col-12 col-lg-6 col-xl-6 mb-2">
-                                <p>Swagger makes it simple to add IN-QUERY parameters like "delay" in the adjacent image which has available values of 0, 15, 30, 90, and 180 seconds. The authentication tokens are passed by default in the HEADER. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">Django Home app</span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="assets/img/me_icon.jpg" alt="" /></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#architecture">App Architecture and Logistics</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#app">Application view</li>
+            </ul>
         </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+    </nav>
+
+
+    <div class="container-fluid p-0">
+        <section class="information-section" id="about" style="align-items: center;">
+            <div class="information-section-content">
+                <h2 class="mb-0">
+                    Light-weight
+                    <span class="text-primary">Django</span>
+                    front-end that interacts with API nodes
+                </h2>
+                <div class="subheading mb-2">
+                    Code is made available on <a target="_blank"
+                        href="https://github.com/rafalbielech/Django-Home-application">Github</a>, executing on home
+                    network deployed with Gunicorn and Nginx.
+                </div>
+
+                <div class="social-icons mt-2">
+                    <a class="social-icon" title="Project page" target="_blank"
+                        href="https://rafalbielech.github.io/projects/"><i class="fab fas fa-laptop-code"></i></a>
+                    <a class="social-icon" title="GitHub" target="_blank"
+                        href="https://github.com/rafalbielech/Django-Home-application"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="text-muted mt-5 mb-2">This project was built as part II to the <a
+                        href="https://rafalbielech.github.io/Django-RestFramework">RestFramework project</a>, it was
+                    designed as a light-weight front-end application that makes API requests to retrieve data from two
+                    API nodes using JWT authentication. Some of the core functionality is to retrieve and visualize
+                    data. The data that is being visualized is either relating to the surveillance parameters or general
+                    node parameters like CPU utilization and memory. </div>
+
+                <div class="subheading text-primary mb-1">Programming Languages, Tools & Platforms</div>
+                <ul class="list-inline dev-icons">
+                    <li class="list-inline-item"><i class="fab fa-python"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                    <li class="list-inline-item"><i class="fab fa-raspberry-pi"></i></li>
+
+                </ul>
+
+            </div>
+        </section>
+        <hr class="m-0" />
+        <section class="information-section" id="architecture">
+            <div class="information-section-content">
+                <h2 class="mb-2">Application architecture</h2>
+                <hr>
+                <div class="d-flex mb-5">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-xl-6 mb-4">
+                            <h4>Arch. methodology</h4>
+                            <p><b>Light-weight and reusable</b>, two phrases that I would use to describe the
+                                methodology of this application and these were the driving force while implementing this
+                                project. I wanted a visually pleasing front-end that ties API nodes running on my
+                                network and enables commands to be sent while still maintaining some form of
+                                authentication. </p>
+                            <p>Front-end actions such as <i>touch, click, select</i> drive javascript events that send
+                                corresponding API requests with a token. For example, selecting "command history" from a
+                                bootstrap-select element will cause javascript to determine what location the API
+                                request should be sent to, and then craft the request using correct end-point to
+                                retrieve information. After the request is completed, update the table and other
+                                elements. </p>
+                            <p>All requests are done on the front-end by javascript. </p>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 mb-4">
+                            <img src="./assets/img/diagram.png" class="img-fluid"
+                                style="object-fit: cover; max-height: 400px; width : auto;" alt="Responsive image">
+                        </div>
+
+                        <div class="col-12 col-lg-6 col-xl-6 mb-2">
+                            <h4>Using web tokens</h4>
+                            <p>In the <a href="https://rafalbielech.github.io/Django-RestFramework">RestFramework
+                                    project</a>, I cover how the tokens are generated and then saved in their respective
+                                locations. This allows me to have a good view of all tokens that are available and I can
+                                quickly see how often they are used. If a token is corrupted or no longer should be
+                                used, I can easily flip a flag and turn off that token's ability to interact with the
+                                APIs.</p>
+                            <p>Web tokens are saved in the environment variable for Django Home Application and are passed to the front-end when the user authenticated with the Django authentication model <span class="text-warning">(to be elaborated below)</span>. Then, then the tokens are saved in local storage or cookies and used to pass in the API request. </p>
+                            <p>In the example below or the right, the token is passed in the API request Header depending on which API node the request is heading to. The action that fired off this request was click on a "start_button"</p>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 mb-2">
+                            <img src="./assets/img/example_request.png" class="img-fluid"
+                                style="object-fit: cover; max-height: 400px; width : auto;" alt="Responsive image">
+                        </div>
+
+                        <div class="col-12 col-lg-6 col-xl-6 mb-2">
+                            <h4>Social Login </h4>
+                            <p><a href="https://django-allauth.readthedocs.io/en/latest/">Django All-auth</a> make using social login very simple and customizable. I am allowing login to be made through the standard Django back-end for admin purposes and social login through Google for user login. </p>
+                            <p>Using all-ath "pre_social_login", I am able to restrict the login to only few gmail addresses else, beautiful 403 page is displayed informing that the user does not her permission to log into the application with their non-approved gmail account.</p>
+                            <p><span class="text-primary">Social login is a beautiful solution for login, I could not be any happier with Django's All-Auth.</span></p>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 mb-2">
+                            <img src="./assets/img/login.png" class="img-fluid"
+                                style="object-fit: cover; max-height: 400px; width : auto;" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+        <section class="information-section" id="app">
+            <div class="information-section-content">
+                <h2 class="mb-2">Application View</h2>
+                <hr>
+                <div class="d-flex mb-5">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-xl-6 mb-4">
+                            <p><a href="https://appseed.us/admin-dashboards/django-dashboard-corona-dark" target="_blank">Appseed's corona dark</a> gives a very visually pleasing dark design from the box. For the home page, I really wanted to make it very useful and usable, so the home page shows the status of the API nodes and RTSP cameras that are running on the network. If the RTSP camera has a blue background color, it means that it is on the network. Similarly, if the API node is executing the surveillance system then it will be red, else green. Lastly, if the API node or RTSP camera are not on the network, then they will have no color by default. </p>
+                            <p> The cluster of three buttons allows me to quickly turn on/off surveillance system and this button fires one of the javascript events that I wrote about in the previous section. </p>
+                            <p>The table on the bottom of the screen with the dropdown allow me to quickly see some of the parameters concerning the surveillance system like when detections occurred and command history, for example.</p>
+                        </div>
+                        <div class="col-12 col-lg-6 col-xl-6 mb-2">
+                            <img src="./assets/img/view.png" class="img-fluid"
+                                style="object-fit: cover; max-height: 1000px; width : auto;" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>
